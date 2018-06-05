@@ -1,0 +1,72 @@
+body {
+    background-image: url("../images/water-world-universe2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.game-title {
+    z-index: 1;
+    font-size: 100px;
+    font-family: 'Cormorant Infant', 'Fanwood Text', 'Norticia Text', serif, sans-serif;
+    font-weight: 1300;
+    text-shadow: 4px 4px goldenrod;
+    color: navy;
+    text-decoration: underline;
+    height: 150px;
+    text-align: center;    
+}
+
+.game-subtitle {
+    z-index: 1;
+    font-size: 50px;
+    font-family: 'Cormorant Infant', 'Fanwood Text', 'Norticia Text', serif, sans-serif;
+    font-weight: 1100;
+    text-shadow: 2px 2px navy;
+    color: goldenrod;
+    font-style: italic;
+    text-align: center;
+    height: 75px;
+}
+
+.pop-out {
+        z-index: 1;
+        text-shadow: 3px 3px navy;
+}
+
+.left-col {
+    background-color: rgba(71, 7, 7, 0.4);
+    font-size: 30px;
+    font-family: 'Norticia Text', serif, sans-serif;
+    font-weight: 500;
+    color: goldenrod;
+    text-align: center;
+}
+
+.right-col {
+    background-color: rgba(71, 7, 7, 0.4);
+    font-size: 40px;
+    font-family: 'Norticia Text', serif, sans-serif;
+    font-weight: 500;
+    color: goldenrod;
+    text-align: center;
+}
+
+img {
+    margin: 20px;
+    width: 150px;
+    height: 100px;
+}
+
+.narrative {
+    z-index: 1;
+    background-color: rgba(71, 7, 7, 0.5);
+    text-shadow: 2px 2px black;
+    font-size: 25px;
+    font-family: 'Cormorant Infant', 'Fanwood Text', 'Norticia Text', serif, sans-serif;
+    font-weight: 500;
+    color: goldenrod;
+    font-style: italic;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+}
