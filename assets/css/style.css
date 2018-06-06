@@ -60,7 +60,7 @@ img {
 .narrative {
     z-index: 1;
     background-color: rgba(71, 7, 7, 0.5);
-    text-shadow: 2px 2px black;
+    text-shadow: 2px 2px navy;
     font-size: 25px;
     font-family: 'Cormorant Infant', 'Fanwood Text', 'Norticia Text', serif, sans-serif;
     font-weight: 500;
