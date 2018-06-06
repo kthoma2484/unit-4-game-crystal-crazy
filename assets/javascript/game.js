@@ -6,7 +6,7 @@ $(document).ready(function() {
     let emeraldVal = "";
     let sapphireVal = "";
     let rubyVal = "";    
-    
+    let gemVals = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
 
     // function to generate random number
     let ranGameNumber = function() {
@@ -19,6 +19,7 @@ $(document).ready(function() {
         emeraldVal = "";
         sapphireVal = "";
         rubyVal = "";
+        let aGemVal = gemVals[Math.floor(Math.random() * gemVals.length)];
         
     }
 
