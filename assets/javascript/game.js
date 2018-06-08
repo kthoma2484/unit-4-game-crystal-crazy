@@ -6,16 +6,9 @@ $(document).ready(function() {
     let emeraldVal = "";
     let sapphireVal = "";
     let rubyVal = "";   
-    let playerScore = []; 
+    let playerScore = 0; 
    
-
-    // function to generate random number
-    let ranGameNumber = function() {
-        return Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-    }
-
     // function to generate random gem values
-    
     let ranGemValues = function() {
         topazVal = "";
         emeraldVal = "";
@@ -26,7 +19,6 @@ $(document).ready(function() {
             while (ranGemVal = Math.floor(Math.random() * 12) + 1) {
                 if (gemGameVals.indexOf(ranGemVal) == -1) {
                     gemGameVals.push(ranGemVal);
-                    console.log(ranGemVal)
                     return ranGemVal;
                 }
             } console.log
@@ -34,59 +26,80 @@ $(document).ready(function() {
         }
     
         topazVal = aGemVal();
-        console.log('topaz value this game is ' + topazVal);
+        console.log('topaz value this game = ' + topazVal);
         
         emeraldVal = aGemVal();
-        console.log('emerald value this game is ' + emeraldVal);
-        
-        sapphireVal = aGemVal();
-        console.log('sapphire value this game is ' + sapphireVal);
-        
+        console.log('emerald value this game  = ' + emeraldVal);
+          
         rubyVal = aGemVal();
-        console.log('ruby value this game is ' + rubyVal);
+        console.log('ruby value this game = ' + rubyVal);
       
-        console.log(gemGameVals);
+        sapphireVal = aGemVal();
+        console.log('sapphire value this game = ' + sapphireVal);
+      
+        console.log(gemGameVals);  
     }
 
-
-    ranGameNumber();
-    console.log('Random game number is = ' + ranGameNumber());
-    $("#gameRanNum").html(ranGameNumber());
-
-    ranGemValues();
-    
-    function getSum(total, num) {
-        return total + num;
+    // start new game
+    let newGame = function() {   
+        // reset player score for new game 
+        playerScore = 0;
+        $('#playerTotal').html(playerScore);
+        // generate new random number
+        randomNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+        $("#gameRanNum").html(randomNumber);
+        // generate new gem values
+        ranGemValues();
+        console.log('random number is = ' + randomNumber)
+        console.log(`playerScore: ${playerScore}  randomNumber: ${randomNumber}`);
     }
 
+    newGame();
     
+    // game win function if player score equals random game number
+    let gameTally = function()  {
+        if (playerScore === randomNumber) {
+            numWins++;
+            console.log('you win');
+            $('#numWins').html(numWins);
+            newGame();
+        } else if (playerScore > randomNumber) {
+            numLosses++;
+            console.log('you loss');
+            $('#numLosses').html(numLosses);
+            newGame();
+        }
+    } 
+
+    // on gem click the gem value is added to player total
     $('#topaz').click(function() {
-        playerScore.push(topazVal);
-        $('#playerTotal').html(playerScore.reduce(getSum));
+        playerScore+=topazVal;
+        $('#playerTotal').html(playerScore);
+        console.log(`playerScore: ${playerScore}`);
+        gameTally();
     });
 
     $('#emerald').click(function() {
-        playerScore.push(emeraldVal);
-        $('#playerTotal').html(playerScore.reduce(getSum));
-    });
-
-    $('#sapphire').click(function() {
-        playerScore.push(sapphireVal);
-        $('#playerTotal').html(playerScore.reduce(getSum));
+        playerScore+=emeraldVal;
+        $('#playerTotal').html(playerScore);
+        console.log(`playerScore: ${playerScore}`);
+        gameTally();
     });
 
     $('#ruby').click(function() {
-        playerScore.push(rubyVal);
-        $('#playerTotal').html(playerScore.reduce(getSum));
+        playerScore+=rubyVal;
+        $('#playerTotal').html(playerScore);
+        console.log(`playerScore: ${playerScore}`);
+        gameTally();
+    });
+
+    $('#sapphire').click(function() {
+        playerScore+=sapphireVal;
+        $('#playerTotal').html(playerScore);
+        console.log(`playerScore: ${playerScore}`);
+        gameTally();
     });
    
-    //if ()
-
-
-
-
-
-
 });
 
 
