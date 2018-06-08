@@ -5,9 +5,9 @@ $(document).ready(function() {
     let topazVal = "";
     let emeraldVal = "";
     let sapphireVal = "";
-    let rubyVal = "";    
-    let gemVals = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
-    let gemGameVals = [];
+    let rubyVal = "";   
+    let playerScore = []; 
+   
 
     // function to generate random number
     let ranGameNumber = function() {
@@ -16,7 +16,6 @@ $(document).ready(function() {
 
     // function to generate random gem values
     
-    
     let ranGemValues = function() {
         topazVal = "";
         emeraldVal = "";
@@ -24,59 +23,64 @@ $(document).ready(function() {
         rubyVal = "";
         let gemGameVals = [];
         let aGemVal = function() {
-            return gemVals[Math.floor(Math.random() * gemVals.length)];
+            while (ranGemVal = Math.floor(Math.random() * 12) + 1) {
+                if (gemGameVals.indexOf(ranGemVal) == -1) {
+                    gemGameVals.push(ranGemVal);
+                    console.log(ranGemVal)
+                    return ranGemVal;
+                }
+            } console.log
+
         }
-        let notHere = false;
-
-        do {
-            aGemVal();
-            if (topazVal == "") {
-            topazVal = aGemVal();
-            console.log('topaz value this game is ' + topazVal);
-            gemGameVals.push(topazVal);
-            console.log(gemGameVals);
-            }
-            
-            if (gemGameVals.indexOf(topazVal)) {
-                emeraldVal = aGemVal();
-                console.log('emerald value this game is ' + emeraldVal);
-                gemGameVals.push(emeraldVal);
-                console.log(gemGameVals);
-            }        
-
-            if (!gemGameVals.indexOf(topazVal) && !gemGameVals.indexOf(emeraldVal)) {
-                sapphireVal = aGemVal = gemVals[Math.floor(Math.random() * gemVals.length)];
-                console.log('sapphire value this game is ' + sapphireVal);
-                gemGameVals.push(sapphireVal);
-                console.log(gemGameVals);
-            }
-            
-            if (!gemGameVals.indexOf(topazVal) && !gemGameVals.indexOf(emeraldVal) && !gemGameVals.indexOf(sapphireVal)) {
-                rubyVal = gemVals[Math.floor(Math.random() * gemVals.length)]
-                console.log('ruby value this game is ' + rubyVal);
-                gemGameVals.push(rubyVal);
-                console.log(gemGameVals);
-            }
-        } 
-        while (topazVal == "" && emeraldVal == "" && sapphireVal == "" && rubyVal == "" );
-
-       
-     
+    
+        topazVal = aGemVal();
+        console.log('topaz value this game is ' + topazVal);
+        
+        emeraldVal = aGemVal();
+        console.log('emerald value this game is ' + emeraldVal);
+        
+        sapphireVal = aGemVal();
+        console.log('sapphire value this game is ' + sapphireVal);
+        
+        rubyVal = aGemVal();
+        console.log('ruby value this game is ' + rubyVal);
+      
+        console.log(gemGameVals);
     }
 
 
     ranGameNumber();
     console.log('Random game number is = ' + ranGameNumber());
+    $("#gameRanNum").html(ranGameNumber());
 
-   ranGemValues();
-   // console.log(ranGemValues())
+    ranGemValues();
     
-$(document).click(function() {
-
-    if ($('#topaz').data('clicked')) {
-
+    function getSum(total, num) {
+        return total + num;
     }
 
+    
+    $('#topaz').click(function() {
+        playerScore.push(topazVal);
+        $('#playerTotal').html(playerScore.reduce(getSum));
+    });
+
+    $('#emerald').click(function() {
+        playerScore.push(emeraldVal);
+        $('#playerTotal').html(playerScore.reduce(getSum));
+    });
+
+    $('#sapphire').click(function() {
+        playerScore.push(sapphireVal);
+        $('#playerTotal').html(playerScore.reduce(getSum));
+    });
+
+    $('#ruby').click(function() {
+        playerScore.push(rubyVal);
+        $('#playerTotal').html(playerScore.reduce(getSum));
+    });
+   
+    //if ()
 
 
 
@@ -93,4 +97,3 @@ $(document).click(function() {
 
 
 
-})
