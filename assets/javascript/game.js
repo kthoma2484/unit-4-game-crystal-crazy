@@ -7,7 +7,9 @@ $(document).ready(function() {
     let sapphireVal = "";
     let rubyVal = "";   
     let playerScore = 0; 
-   
+    let count="";
+    let counter="";
+
     // function to generate random gem values
     let ranGemValues = function() {
         topazVal = "";
@@ -40,6 +42,19 @@ $(document).ready(function() {
         console.log(gemGameVals);  
     }
 
+    // start timer
+    function timer() {
+        console.log('timer ran mofo!');
+        count=count-1;
+        $('#timer').html(count + ' seconds');
+        if (count <= 0) {
+            numLosses++;
+            $('#game-end').html('Your Time has passed! You have not met the price the Universe demands.');
+            $('#numLosses').html(numLosses);
+            clearInterval(counter)
+        }
+    }
+
     // start new game
     let newGame = function() {   
         // reset player score for new game 
@@ -52,24 +67,32 @@ $(document).ready(function() {
         ranGemValues();
         console.log('random number is = ' + randomNumber)
         console.log(`playerScore: ${playerScore}  randomNumber: ${randomNumber}`);
+        $('#game-end').html("");
+        clearInterval(counter);
+        count=60
+        counter=setInterval(timer, 1000);
+        $('#timer').html(count + ' seconds');
     }
 
-    newGame();
-    
+    $('button').click(newGame);
+
     // game win function if player score equals random game number
     let gameTally = function()  {
         if (playerScore === randomNumber) {
             numWins++;
             console.log('you win');
             $('#numWins').html(numWins);
-            newGame();
+            $('#game-end').html('You have met the offering demands of the Universe! The fates favor you!');
+            clearInterval(counter);
         } else if (playerScore > randomNumber) {
             numLosses++;
             console.log('you loss');
             $('#numLosses').html(numLosses);
-            newGame();
+            $('#game-end').html('You have NOT met the demands of the Universe! You! Are! Not! Worthy!');
+            clearInterval(counter);
         }
     } 
+
 
     // on gem click the gem value is added to player total
     $('#topaz').click(function() {
