@@ -96,6 +96,10 @@ img {
 }
 
 
+.show-me {
+    display: none;
+}
+
 /* ----Screens 980px or less -----  */
 
 @media (max-width: 980px) {
@@ -191,5 +195,8 @@ img {
         display: none;
     }
     
+    .show-me {
+        display: inline;
+    }
 }
 
