@@ -5,7 +5,6 @@ body {
 }
 
 .game-title {
-    z-index: 1;
     font-size: 100px;
     font-family: 'Cormorant Infant', 'Fanwood Text', 'Norticia Text', serif, sans-serif;
     font-weight: 1300;
@@ -16,7 +15,6 @@ body {
 }
 
 .game-subtitle {
-    z-index: 1;
     font-size: 50px;
     font-family: 'Cormorant Infant', 'Fanwood Text', 'Norticia Text', serif, sans-serif;
     font-weight: 1100;
@@ -27,7 +25,6 @@ body {
 }
 
 .pop-out {
-    z-index: 1;
     text-shadow: 3px 3px navy;
 }
 
@@ -51,7 +48,7 @@ body {
 .right-col {
     flex: 1;
     background-color: rgba(71, 7, 7, 0.4);
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'Norticia Text', serif, sans-serif;
     font-weight: 500;
     color: goldenrod;
@@ -71,6 +68,7 @@ body {
 button {
     background-color: navy;
     color: goldenrod;
+    margin: 10px;
 }
 
 img {
@@ -80,7 +78,6 @@ img {
 }
 
 .narrative {
-    z-index: 1;
     background-color: rgba(71, 7, 7, 0.5);
     text-shadow: 2px 2px navy;
     font-size: 25px;
@@ -91,7 +88,7 @@ img {
     justify-content: center;
     text-align: center;
     line-height: 1;
-    margin: 20px;
+    margin: 30px;
     padding: 10px;
 }
 
@@ -170,6 +167,7 @@ img {
     .left-col,
     .right-col {
         margin-bottom: 0;
+        font-size: 20px;
     }
     
     .middle-col {

@@ -9,6 +9,7 @@ $(document).ready(function() {
     let playerScore = 0; 
     let count="";
     let counter="";
+    let randomNumber = 0;
 
     // function to generate random gem values
     let ranGemValues = function() {
@@ -51,7 +52,11 @@ $(document).ready(function() {
             numLosses++;
             $('#game-end').html('Your Time has passed! You have not met the price the Universe demands.');
             $('#numLosses').html(numLosses);
-            clearInterval(counter)
+            clearInterval(counter);
+            topazVal = 0;
+            emeraldVal = 0;
+            sapphireVal = 0;
+            rubyVal = 0; 
         }
     }
 
@@ -84,12 +89,20 @@ $(document).ready(function() {
             $('#numWins').html(numWins);
             $('#game-end').html('You have met the offering demands of the Universe! The fates favor you!');
             clearInterval(counter);
+            topazVal = 0;
+            emeraldVal = 0;
+            sapphireVal = 0;
+            rubyVal = 0; 
         } else if (playerScore > randomNumber) {
             numLosses++;
             console.log('you loss');
             $('#numLosses').html(numLosses);
             $('#game-end').html('You have NOT met the demands of the Universe! You! Are! Not! Worthy!');
             clearInterval(counter);
+            topazVal = 0;
+            emeraldVal = 0;
+            sapphireVal = 0;
+            rubyVal = 0; 
         }
     } 
 
